@@ -6,25 +6,25 @@
 
 
 
-                                                                    Introdução para desenvolvedores
+                                          Introdução para desenvolvedores
 
-                                                            
-                                                                                    ::                          
-                                                                              ::::::::::::::                    
-                                                                            ::::::::::::::::::                  
-                                                                          ::::::::::::::::::::::                
-                                                                    ::::  ::::::::::::::::::::::                
-                                                                ::::::::::::::::::::::::::::::::::              
-                                                                ::::::::::::::::::::::::::::::::  ........      
-                                                                ::::::::::::::::::::::::::::::::  ..........    
-                                                            ::::::::::::::::::::::::::::::::::    ..........    
-                                                          ::::::::::::                                  ......  
-                                                        ::::::::::::::::::::::::::::::::::::..  ..............  
-                                                        ::::::::::::::::::::::::::::::::::::--................  
-                                                        ::::::::::::::::::::::::::::::::::::                    
-                                                                                                                
- 
-                                                                           C L O U D F L A R E
+
+                                                        ::
+                                                  ::::::::::::::
+                                                ::::::::::::::::::
+                                              ::::::::::::::::::::::
+                                        ::::  ::::::::::::::::::::::
+                                    ::::::::::::::::::::::::::::::::::
+                                    ::::::::::::::::::::::::::::::::  ........
+                                    ::::::::::::::::::::::::::::::::  ..........
+                                ::::::::::::::::::::::::::::::::::    ..........
+                              ::::::::::::                                  ......
+                            ::::::::::::::::::::::::::::::::::::..  ..............
+                            ::::::::::::::::::::::::::::::::::::--................
+                            ::::::::::::::::::::::::::::::::::::
+
+
+                                               C L O U D F L A R E
 
 
 
@@ -47,7 +47,8 @@ Se precisar, é só entrar em contato: 📧 [marco@podcodar.org](mailto:marco@po
 
 ## O que é o Cloudflare? 🤔
 
-Cloudflare é uma empresa que fornece uma variedade de serviços para melhorar a segurança, desempenho e confiabilidade de sites e aplicações na web.
+Cloudflare é uma empresa que fornece uma variedade de serviços para melhorar a segurança, desempenho e
+confiabilidade de sites e aplicações na web.
 
 Seus principais serviços incluem:
 
@@ -55,28 +56,28 @@ Seus principais serviços incluem:
 - **Segurança 🔒:** Oferece proteção contra DDoS e firewall de aplicativos web (WAF).
 - **DNS Gerenciado 🌐:** Proporciona um DNS rápido e seguro com suporte a DNSSEC.
 - **Integração com APIs 📡:** APIs robustas para automação e integração.
-- **Ferramentas de Desenvolvimento 🛠️:** Inclui o Wrangler CLI para gerenciar Workers e a capacidade de executar código JavaScript na borda da rede.
+- **Ferramentas de Desenvolvimento 🛠️:** Inclui o Wrangler CLI para gerenciar Workers e executar código JavaScript.
 
 # Agenda
 
 ## Hoje vamos abordar os seguintes tópicos:
 
 1. Cloudflare para desenvolvedores 👨‍💻👩‍💻
-    - Auto CI/CD
-    - Wrangler CLI
-    - Node Compatibility
+   - Auto CI/CD
+   - Wrangler CLI
+   - Node Compatibility
 1. Edge Computing (pros e contras) 🌍
 1. Principais Serviços 🚀
-    - Workers
-    - KV
-    - R1
-    - AI
+   - Workers
+   - KV
+   - R1
+   - AI
 1. Demo: Lista de tarefas com categorização automágica 🛠️
 1. Outros serviços 🌐
-    - Workers Workflows
-    - R2
-    - Queue
-    - Pub/Sub
+   - Workers Workflows
+   - R2
+   - Queue
+   - Pub/Sub
 1. Comparação com outros provedores ⚖️
 1. Conclusão 🎯
 
@@ -96,9 +97,9 @@ Seus principais serviços incluem:
     deploy:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v2
-      - name: Deploy
-        run: npx wrangler publish
+        - uses: actions/checkout@v2
+        - name: Deploy
+          run: npx wrangler publish
   ```
 
 ## Wrangler CLI 🛠️
@@ -109,6 +110,7 @@ Seus principais serviços incluem:
   npm create cloudflare@latest -- my-first-worker
   ```
 - Comando básico:
+
   ```bash
   npx wrangler init
 
@@ -125,11 +127,13 @@ Seus principais serviços incluem:
 
 # Edge Computing 🌍
 
-Edge Computing é uma arquitetura de computação distribuída que traz o processamento de dados e o armazenamento mais próximos das fontes de dados.
+Edge Computing é uma arquitetura de computação distribuída que traz o processamento de dados e o armazenamento mais
+próximos das fontes de dados.
 
 Ao processar dados na borda da rede, as empresas podem oferecer experiências de usuário mais rápidas e responsivas.
 
-Isso também ajuda a reduzir a carga nos servidores centrais e a largura de banda necessária para transferir dados para data centers distantes.
+Isso também ajuda a reduzir a carga nos servidores centrais e a largura de banda necessária para transferir dados
+para data centers distantes.
 
 ## Prós ✅
 
@@ -153,12 +157,12 @@ Isso também ajuda a reduzir a carga nos servidores centrais e a largura de band
 
 - Executa código JavaScript na borda da rede.
 - Exemplo de Worker:
-    ```javascript
-    export default {
-      async fetch(request, env, ctx) {
-        return new Response("Hello World!");
-      },
-    };
+  ```javascript
+  export default {
+    async fetch(request, env, ctx) {
+      return new Response("Hello World!");
+    },
+  };
   ```
 - Suporte para linguagens adicionais como Rust e C++.
 - Integração com APIs de terceiros para funcionalidades avançadas.
@@ -182,19 +186,23 @@ Isso também ajuda a reduzir a carga nos servidores centrais e a largura de band
 - **Ferramentas de Treinamento:** Implantação de modelos personalizados.
 
 ---
+
 # Demo: Lista de tarefas com categorização automágica 🛠️
 
 ## Introdução
 
-Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (To-Do List) utilizando Cloudflare Workers, R1, KV e integração com AI.
+Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (To-Do List) utilizando Cloudflare
+Workers, R1, KV e integração com AI.
 
 ## Passos para Criar a To-Do List
 
 1. **Configuração do Ambiente**
+
    - Certifique-se de que o Wrangler CLI está instalado.
    - Autentique-se no Cloudflare usando o comando `npx wrangler login`.
 
 2. **Criação do Worker**
+
    - Inicie um novo projeto de Worker:
      ```bash
      npx wrangler generate my-todo-list
@@ -202,6 +210,7 @@ Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (T
      ```
 
 3. **Configuração do KV**
+
    - No arquivo `wrangler.toml`, adicione a configuração para o KV:
      ```toml
      [[kv_namespaces]]
@@ -210,6 +219,7 @@ Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (T
      ```
 
 4. **Configuração do R1**
+
    - Configure o banco de dados R1 no Cloudflare Dashboard e adicione a configuração no `wrangler.toml`:
      ```toml
      [[r1_databases]]
@@ -218,9 +228,11 @@ Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (T
      ```
 
 5. **Integração com AI**
+
    - Utilize a API de AI para adicionar funcionalidades inteligentes, como categorização automática de tarefas.
 
 6. **Deploy do Worker**
+
    - Faça o deploy do Worker:
      ```bash
      npx wrangler deploy
@@ -231,6 +243,7 @@ Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (T
    - Ajuste conforme necessário para melhorar a funcionalidade e a experiência do usuário.
 
 ---
+
 # Outros Serviços 🌐
 
 ## Workers Workflows 🔄
@@ -276,7 +289,8 @@ Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (T
 
 # Conclusão 🎯
 
-Cloudflare oferece uma ampla gama de serviços que podem transformar a maneira como desenvolvedores constroem e escalam suas aplicações.
+Cloudflare oferece uma ampla gama de serviços que podem transformar a maneira como desenvolvedores constroem e
+escalam suas aplicações.
 
 Com ferramentas poderosas e uma rede global, é uma escolha sólida para qualquer projeto web.
 
