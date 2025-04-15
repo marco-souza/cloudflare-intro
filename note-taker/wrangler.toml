@@ -1,0 +1,6 @@
+name = "note-taker"
+main = "src/index.ts"
+compatibility_date = "2025-03-11"
+
+[observability]
+enabled = true
