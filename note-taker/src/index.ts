@@ -3,20 +3,44 @@
  *
  * - [x] handle API request
  * - [x] create db structure
- * - add new note
+ * - [x] add new task
+ * - [x] persist notes to db
+ * - [x] list notes
  * - generate categories
- * - persist notes to db
- * - list notes
  */
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
 		if (request.method === "POST") {
-			env.DB.prepare;
+			const body = await request.json<{ description: string }>();
 
-			return new Response("Create note");
+			const categories = "bla, bla";
+
+			const res = await env.DB.prepare(
+				"INSERT INTO tasks (description, categories) VALUES (?, ?)",
+			)
+				.bind(body.description, categories)
+				.run();
+
+			if (!res.success) {
+				return new Response("Failed to create task", { status: 400 });
+			}
+
+			return new Response("Task created", { status: 201 });
 		}
 
-		return new Response("list notes");
+		const tasksRes = await env.DB.prepare("SELECT * FROM tasks").all();
+		if (!tasksRes.success) {
+			return new Response("Failed to create task", { status: 400 });
+		}
+
+		const tasks = tasksRes.results;
+		const output = JSON.stringify(tasks, null, 2);
+
+		return new Response(output, {
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
 	},
 } satisfies ExportedHandler<Env>;
