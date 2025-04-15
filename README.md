@@ -246,3 +246,4 @@ Para mais informações, visite [Cloudflare](https://www.cloudflare.com/).
 - https://developers.cloudflare.com/
 - https://developers.cloudflare.com/workers/demos/
 - https://developers.cloudflare.com/workers/get-started/guide/
+- https://github.com/marco-souza/cloudflare-intro
