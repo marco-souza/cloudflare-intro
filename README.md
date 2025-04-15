@@ -174,7 +174,7 @@ Isso também ajuda a reduzir a carga nos servidores centrais e a largura de band
 
 ## Introdução
 
-Nesta seção, vamos criar uma pequena aplicação de lista de tarefas (To-Do List) utilizando Cloudflare Workers, R1, KV e integração com AI.
+Nesta demonstração, vamos criar uma pequena aplicação de lista de tarefas (To-Do List) utilizando Cloudflare Workers, R1, KV e integração com AI.
 
 ## Passos para Criar a To-Do List
 
