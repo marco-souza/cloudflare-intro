@@ -4,3 +4,8 @@ compatibility_date = "2025-03-11"
 
 [observability]
 enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "notes-db"
+database_id = "3c05bfcf-d0ed-46fa-9536-5fe4b4811cb9"

@@ -1,0 +1,9 @@
+-- Migration number: 0001 	 2025-04-15T23:25:10.498Z
+CREATE TABLE IF NOT EXISTS tasks (
+		id SERIAL PRIMARY KEY,
+
+		description VARCHAR(255) NOT NULL,
+		categories TEXT NOT NULL,
+
+		created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
