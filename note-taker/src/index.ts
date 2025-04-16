@@ -1,3 +1,4 @@
+import { Ai } from "@cloudflare/ai";
 /**
  * To implement
  *
@@ -14,7 +15,22 @@ export default {
 		if (request.method === "POST") {
 			const body = await request.json<{ description: string }>();
 
-			const categories = "bla, bla";
+			console.log("[ai]");
+			const ai = new Ai(env.AI);
+			const messages = [
+				{
+					role: "system",
+					content:
+						"Hello,You are a Categorizer assistent. I'll pass you a task, and you will return a list of 2 or 3 categories for it. BE BRIEF, RETURN ONLY THE CATEGORIES COMMA-SEPARATED VALUES!",
+				},
+				{ role: "user", content: body.description },
+			];
+
+			const inputs = { messages };
+			const aiRes = await ai.run("@cf/meta/llama-3-8b-instruct", inputs);
+
+			// generated categories
+			const categories = aiRes.response;
 
 			const res = await env.DB.prepare(
 				"INSERT INTO tasks (description, categories) VALUES (?, ?)",
